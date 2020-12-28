@@ -146,6 +146,28 @@ private:
 		return result;
 	}
 
+	bool searchForNodeId(string empId) {
+		bool flag = false;
+		if (checkHead()) {
+			Node* ptr = Head;
+
+			while (ptr != NULL) {
+				if (ptr->id == empId)
+				{
+					flag = true;
+					break;
+				}
+				ptr = ptr->next;
+			}
+		}
+		if (flag == true) {
+			SetConsoleTextAttribute(hConsole, 4);
+			cout << "\n\t\tThis Id Already Exist Please try again";
+		}
+		SetConsoleTextAttribute(hConsole, 10);
+		return flag;
+	}
+
 	Node* nodeValue() {
 		Node* tempNode = new Node;
 		string tempVar;
@@ -153,69 +175,52 @@ private:
 	emp_id:
 		cout << "\n\n\n\t\tEnter the Employee ID in format of Emp-xxxxx-xx (x: number):\t\t\t";
 		cin >> tempVar;
-		if (!checkEmpId(tempVar, size(tempVar))) {
-			goto emp_id;
-		}
+		if (!checkEmpId(tempVar, size(tempVar))) goto emp_id;
+		if (searchForNodeId(tempVar)) goto emp_id;
 		strcpy_s(tempNode->id, tempVar.c_str());
 		cin.ignore();
 
 	emp_name:
 		cout << "\n\t\tEnter the employee Full name (3 - 20):\t\t\t\t\t\t";
 		getline(cin, tempVar);
-		if (!checkLength(20, size(tempVar))) {
-			goto emp_name;
-		}
+		if (!checkLength(20, size(tempVar))) goto emp_name;
 		strcpy_s(tempNode->name, tempVar.c_str());
 
 	emp_qual:
 		cout << "\n\t\tEnter the Qualification (3 - 20):\t\t\t\t\t\t";
 		getline(cin, tempVar);
-		if (!checkLength(20, size(tempVar))) {
-			goto emp_qual;
-		}
+		if (!checkLength(20, size(tempVar))) goto emp_qual;
 		strcpy_s(tempNode->qualification, tempVar.c_str());
 
 	emp_address:
 		cout << "\n\t\tEnter the Address of Employee (3 - 20):\t\t\t\t\t\t";
 		getline(cin, tempVar);
-		if (!checkLength(30, size(tempVar))) {
-			goto emp_address;
-		}
+		if (!checkLength(30, size(tempVar))) goto emp_address;
 		strcpy_s(tempNode->address, tempVar.c_str());
 
 	emp_city:
 		cout << "\n\t\tEnter the City (3 - 20):\t\t\t\t\t\t\t";
 		getline(cin, tempVar);
-		if (!checkLength(20, size(tempVar))) {
-			goto emp_city;
-		}
+		if (!checkLength(20, size(tempVar))) goto emp_city;
 		strcpy_s(tempNode->city, tempVar.c_str());
 
 	emp_job_title:
 		cout << "\n\t\tEnter the employee Job title (3 - 20):\t\t\t\t\t\t";
 		getline(cin, tempVar);
-		if (!checkLength(20, size(tempVar))) {
-			goto emp_job_title;
-		}
+		if (!checkLength(20, size(tempVar))) goto emp_job_title;
 		strcpy_s(tempNode->jobTitle, tempVar.c_str());
 
 	emp_salary:
 		cout << "\n\t\tEnter the Employee the Salary:\t\t\t\t\t\t\t";
 		cin >> tempVar;
-		if (checkDouble(tempVar) == -1) {
-			goto emp_salary;
-		}
-		else {
-			tempNode->salary = checkDouble(tempVar);
-		}
+		if (checkDouble(tempVar) == -1) goto emp_salary;
+		else tempNode->salary = checkDouble(tempVar);
 		cin.ignore();
 
 	emp_start_date:
 		cout << "\n\t\tEnter the start Date:\t\t\t\t\t\t\t\t";
 		getline(cin, tempVar);
-		if (!checkDate(tempVar, size(tempVar))) {
-			goto emp_start_date;
-		}
+		if (!checkDate(tempVar, size(tempVar))) goto emp_start_date;
 		strcpy_s(tempNode->startDate, tempVar.c_str());
 
 		return tempNode;
