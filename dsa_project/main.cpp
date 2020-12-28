@@ -13,22 +13,23 @@ using namespace std;
 ofstream fout;
 HANDLE  hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-// Structure to be used in linked List to store the data
-struct Node
-{
-	char id[13];
-	char name[21];
-	char qualification[21];
-	char address[31];
-	char city[21];
-	char jobTitle[21];
-	double salary;
-	char startDate[11];
-	Node* prev, * next;
-} *Head = NULL;
-
 class Employee {
 private:
+
+	// Structure to be used in linked List to store the data
+	struct Node
+	{
+		char id[13];
+		char name[21];
+		char qualification[21];
+		char address[31];
+		char city[21];
+		char jobTitle[21];
+		double salary;
+		char startDate[11];
+		Node* prev, * next;
+	} *Head = NULL;
+
 	int choice = 0;
 
 	bool checkEmpId(string empId, int size) {
@@ -219,7 +220,7 @@ private:
 
 		return tempNode;
 	}
-	
+
 	void generateNode(string id, string name, string qualification, string address, string city, string jobTitle, double salary, string startDate) {
 
 		Node* tempNode = new Node();
@@ -258,6 +259,7 @@ public:
 	// Method to display Main menu for selection
 	// 0 - BLACK, 1 - DARK BLUE, 2 - DARK GREEN, 3 - GREENISH BLUE, 4 - RED, 5 - PURPLE, 6 - YELLOW, 7 - WHITE, 8 - GREY, 9 - BRIGHT BLUE
 	// 10 - BRIGHT GREEM, 11 - BLUEISH GREEN, 12 - ORANGEISH RED, 
+
 	void mainMenu() {
 		FlushConsoleInputBuffer(hConsole);
 		SetConsoleTextAttribute(hConsole, 10);
@@ -652,21 +654,17 @@ public:
 
 				if (ptr->id == val) {
 					counter++;
-
 					flag = true;
 					struct Node* s;
-					system("PAUSE");
 					s = Head;
 					for (int i = 1; i < counter; i++) {
 						ptr = s;
 						s = s->next;
 					}
 					ptr->next = s->next;
-
-					return;
+					cout << "\n\t\t\t\t\tDeleted Successfully!\n";
 					break;
 				}
-
 				ptr = ptr->next;
 				counter++;
 			}
@@ -829,10 +827,11 @@ int main() {
 			system("CLS");
 			break;
 		case 3:
-			cout << "Case 3";
+			employee.updateRecord();
+			system("CLS");
 			break;
 		case 4:
-			cout << "Case 4";
+			employee.deleteRecord();
 			break;
 		case 5:
 			do {
@@ -880,9 +879,6 @@ int main() {
 			break;
 		case 6:
 			employee.exitProgram();
-			break;
-		case 7:
-			employee.initialize();
 			break;
 		default:
 			SetConsoleTextAttribute(hConsole, 12);
