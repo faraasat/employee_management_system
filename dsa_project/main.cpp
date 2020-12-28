@@ -601,6 +601,83 @@ public:
 		}
 	}
 
+	void updateRecord() {
+		system("CLS");
+		SetConsoleTextAttribute(hConsole, 6);
+		bool flag = false;
+		if (checkHead()) {
+			string val;
+			Node* ptr = Head;
+			Node* temp;
+
+			cout << "\n\n\t\t\t\tEnter the employee ID which you want to update a record:";
+			cout << "\n\t\t\t\t\tType back to return\n\n\t\t\t\tID: ";
+			cin >> val;
+
+			while (ptr != NULL) {
+				if (val == "back" || val == "BACK") {
+					break;
+				}
+				if (ptr->id == val)
+				{
+					temp = nodeValue();
+					ptr = temp;
+					break;
+				}
+				ptr = ptr->next;
+			}
+			if (flag == false) {
+				SetConsoleTextAttribute(hConsole, 4);
+				cout << "\n\n\t\tRecord does not exist for given Id!\n\n";
+				SetConsoleTextAttribute(hConsole, 7);
+			}
+			system("CLS");
+		}
+	}
+
+	void deleteRecord() {
+		system("CLS");
+		SetConsoleTextAttribute(hConsole, 6);
+		if (checkHead()) {
+			string val;
+			Node* ptr = Head;
+			bool flag = false;
+			cout << "\n\n\t\t\t\tEnter the employee ID of the record which you want to delete:";
+			cout << "\n\t\t\t\t\tType back to return\n\n\t\t\t\tID: ";
+			cin >> val;
+			int counter = 0;
+			while (ptr != NULL) {
+
+				if (val == "back" || val == "BACK") { system("CLS"); return; }
+
+				if (ptr->id == val) {
+					counter++;
+
+					flag = true;
+					struct Node* s;
+					system("PAUSE");
+					s = Head;
+					for (int i = 1; i < counter; i++) {
+						ptr = s;
+						s = s->next;
+					}
+					ptr->next = s->next;
+
+					return;
+					break;
+				}
+
+				ptr = ptr->next;
+				counter++;
+			}
+			if (flag == false) {
+				SetConsoleTextAttribute(hConsole, 4);
+				cout << "\n\n\t\tRecord does not exist for given Id!\n\n";
+				SetConsoleTextAttribute(hConsole, 7);
+			}
+		}
+	}
+
 	void exitProgram() {
 		system("CLS");
 
