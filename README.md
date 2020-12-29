@@ -8,8 +8,8 @@
 #### In this project the basic data structure used to keep record is Doubly Linked List. Apart of this Linear Search is used for searching.
 
 ### 🤹‍♂️ Skill:
-![Visual Studio](https://img.shields.io/badge/-Visual%20Studio-00CCBB?style=for-the-badge&logo=visual-studio)
-![C++](https://img.shields.io/badge/-C++-999999?logo=C%2B%2B&style=for-the-badge&logoColor=white)&nbsp;
+![Visual Studio](https://img.shields.io/badge/-Visual%20Studio-00CCBB?style=for-the-badge&logo=visual-studio)&nbsp;&nbsp;&nbsp;&nbsp;
+![C++](https://img.shields.io/badge/-C++-999999?logo=C%2B%2B&style=for-the-badge&logoColor=white)&nbsp;&nbsp;&nbsp;&nbsp;
 ![Data Structure and Algorithms](https://img.shields.io/badge/-Data%20Structures%20and%20Algorithms-14A0C4?&style=for-the-badge&logoColor=white)&nbsp;
 
 ### ✔ Contributers:
