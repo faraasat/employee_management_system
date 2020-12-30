@@ -682,14 +682,11 @@ public:
 	}
 
 	void exitProgram() {
-		system("CLS");
 
 		ofstream fout;
 		fout.open("data.csv");
-
-		if (checkHead()) {
+		if (Head != NULL) {
 			Node* ptr = Head;
-
 			int count = 1;
 			while (ptr != NULL) {
 				fout << count << "." << "," << ptr->id << "," << "" << ptr->name << "," << ptr->qualification << "," << ptr->address << ","
@@ -699,7 +696,9 @@ public:
 			}
 
 		}
+		fout.close();
 
+		system("CLS");
 		SetConsoleTextAttribute(hConsole, 9);
 		cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 		cout << "\n\t\t\t\t\t||||||||||||   |||||        |||||   ||||||||||||    ||||||||||||   ||||||||||||    |||||||||     ||||||    |||||||||||||||||||||"; Sleep(100);
