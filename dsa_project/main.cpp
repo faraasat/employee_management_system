@@ -218,7 +218,7 @@ private:
 		cin.ignore();
 
 	emp_start_date:
-		cout << "\n\t\tEnter the start Date:\t\t\t\t\t\t\t\t";
+		cout << "\n\t\tEnter the start Date (yyyy-mm-dd):\t\t\t\t\t\t";
 		getline(cin, tempVar);
 		if (!checkDate(tempVar, size(tempVar))) goto emp_start_date;
 		strcpy_s(tempNode->startDate, tempVar.c_str());
