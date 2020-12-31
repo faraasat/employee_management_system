@@ -52,7 +52,7 @@ private:
 	bool checkLength(int req_size, int pro_size) {
 		SetConsoleTextAttribute(hConsole, 12);
 		if ((pro_size > req_size) || (pro_size < 3)) {
-			cout << "\n\t\tName Should be at least 3 characters or donot exceed " << req_size << " characters\n";
+			cout << "\n\t\tField Should be at least 3 characters or donot exceed " << req_size << " characters\n";
 			SetConsoleTextAttribute(hConsole, 10);
 			return 0;
 		}
