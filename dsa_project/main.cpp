@@ -5,9 +5,9 @@
 #include<regex>
 #include <ctime>
 #include<fstream>
-#include<iomanip>
+//#include<iomanip>
 #include<vector>
-#include <sstream>
+#include <sstream>  // StringStrem to split the string
 using namespace std;
 
 ofstream fout;
@@ -138,9 +138,10 @@ private:
 
 	vector<string> split(const string& s, char delim) {
 		vector<string> result;
-		stringstream ss(s);
-		string item;
-		while (getline(ss, item, delim)) {
+		stringstream ss(s); // Used for breaking words 
+		string item; // to store individual words 
+		while (getline(ss, item, delim)) {  
+			// Extracts characters from is and stores them into str until the delimitation character delim is found 
 			result.push_back(item);
 		}
 		return result;
@@ -713,7 +714,7 @@ public:
 		cout << "\n\t\t\t\t\t||||||||||||   |||||        |||||   |||||||||||       ||||||||     |||||||||||    ||||||     |||||||||     |||||||||||||    ||||"; Sleep(100);
 		SetConsoleTextAttribute(hConsole, 7);
 		Sleep(500);
-		cout << endl;
+		cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl;
 	}
 };
 
